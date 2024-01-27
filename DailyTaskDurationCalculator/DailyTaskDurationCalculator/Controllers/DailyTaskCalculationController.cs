@@ -15,7 +15,7 @@ namespace DailyTaskDurationCalculator.Controllers
         [HttpPost]
         public IActionResult CalculateEndDate([FromBody] TaskDurationRequestDTO taskDurationRequestDTO)
         {
-            if (taskDurationRequestDTO is null)
+            if (taskDurationRequestDTO is null || taskDurationRequestDTO.NumberOfDaysForCompletion == 0)
             {
                 return BadRequest();
             }
